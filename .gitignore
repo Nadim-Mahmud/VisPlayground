@@ -1,0 +1,15 @@
+# Build output
+build/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data and generated files
+*.raw
+*.png
+*.jpg
+*.bin
+*.npy
+*.vtk
