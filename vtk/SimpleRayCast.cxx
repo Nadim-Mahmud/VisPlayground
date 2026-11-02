@@ -211,6 +211,8 @@ int main(int argc, char* argv[])
 	double data[data_size];
     file.read(reinterpret_cast<char*>(data), data_size*sizeof(double));
     file.close();
+
+
 	// Array data into view tensor
 	for (int i = 0; i < block_size; i++) {
 		for (int j = 0; j < ray_size; j++) {
@@ -231,6 +233,7 @@ int main(int argc, char* argv[])
 			}
 		}
 	}
+
 	std::cout << "position: " << views[0][0][0][0][0] << ", " << views[0][0][0][0][1] << ", " << views[0][0][0][0][2] << std::endl;
 	std::cout << "focal: " << views[0][0][0][0][3] << ", " << views[0][0][0][0][4] << ", " << views[0][0][0][0][5] << std::endl;
 	std::cout << "up: " << views[0][0][0][0][6] << ", " << views[0][0][0][0][7] << ", " << views[0][0][0][0][8] << std::endl;
@@ -328,9 +331,11 @@ int main(int argc, char* argv[])
   	ren1->GetActiveCamera()->SetViewUp(views[0][0][0][3][6],
 				  					   views[0][0][0][3][7],
 									   views[0][0][0][3][8]);
-  	ren1->GetActiveCamera()->SetViewAngle(30);
+	
+	ren1->GetActiveCamera()->SetViewAngle(30);
   	ren1->GetActiveCamera()->SetClippingRange(0.1, 1000);
-  	printCamera(ren1->GetActiveCamera());
+  	
+	printCamera(ren1->GetActiveCamera());
   
   	// renWin->SetSize(1024, 1024);
   	// renWin->SetSize(512, 512);
